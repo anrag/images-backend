@@ -17,7 +17,8 @@ const createServer = (): express.Application => {
     const q: string = (_req.query?.name as string) || 'india';
     const limit: number = _req.query?.name ? 25 : 150;
     const page = parseInt(_req.query?.page as string) || 1;
-    if (fs.existsSync(`images.json`) && (q === null || q === undefined || q !== 'india')) {
+    if (fs.existsSync(`images.json`) && (q === null || q === undefined || q === 'india')) {
+      console.log(q, 'GERTTT');
       let readFile = fs.readFileSync('images.json', 'utf-8');
       readFile = JSON.parse(readFile);
       res.send([...readFile]);
