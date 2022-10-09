@@ -27,3 +27,4 @@ jobs:
       - run: npm run build --if-present
       # - run: npm test
       - run: sudo pm2 restart backend
+      - run: sudo rm -rf /home/ubuntu/images-backend/_work/images-backend/images-backend
