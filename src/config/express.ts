@@ -18,7 +18,6 @@ const createServer = (): express.Application => {
     const limit: number = _req.query?.name ? 25 : 150;
     const page = parseInt(_req.query?.page as string) || 1;
     if (fs.existsSync(`images.json`) && (q === null || q === undefined || q === 'india')) {
-      console.log(q, 'GERTTT');
       let readFile = fs.readFileSync('images.json', 'utf-8');
       readFile = JSON.parse(readFile);
       res.send([...readFile]);
@@ -28,7 +27,8 @@ const createServer = (): express.Application => {
         fs.writeFile(`images.json`, JSON.stringify([...data]), { flag: 'wx' }, (err) => {
           if (err) console.log(err);
         });
-        res.send([...data]);
+        if (data[0].length > 0 || data[1].length > 0) res.send([...data]);
+        else res.send([]);
       });
     }
   });
