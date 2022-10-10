@@ -1,6 +1,7 @@
 import { fetchPeexlesImages, fetchPixabayImages } from '@server/utils/pixabay';
 import express from 'express';
 import fs from 'fs';
+import path from 'path';
 const createServer = (): express.Application => {
   const app = express();
 
@@ -11,6 +12,11 @@ const createServer = (): express.Application => {
 
   app.get('/health', (_req, res) => {
     res.send('UP');
+  });
+
+  app.get('/privacy', (_req, res) => {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    res.sendFile(path.join(__dirname + '/privacy.html'));
   });
 
   app.get('/fetch', async (_req, res) => {
