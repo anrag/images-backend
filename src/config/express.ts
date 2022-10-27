@@ -30,9 +30,14 @@ const createServer = (): express.Application => {
     // const indexofNews = Array.prototype.findIndex(readFile);
     const indexofNews = readFile.findIndex((e) => e.title === _req.body?.title);
     if (indexofNews == -1) {
-      fs.appendFile(`news.txt`, `${JSON.stringify({ ..._req.body, createdAt: new Date() }) + ','}`, (err) => {
-        if (err) console.log(err);
-      });
+      fs.writeFile(
+        `news.txt`,
+        `${JSON.stringify({ ..._req.body, createdAt: new Date() }) + ','}`,
+        { flag: 'wx' },
+        (err) => {
+          if (err) console.log(err);
+        },
+      );
       res.jsonp({ message: 'Article Saved Succesfully' });
       return;
     } else {
