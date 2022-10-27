@@ -2,9 +2,17 @@ import { fetchPeexlesImages, fetchPixabayImages } from '@server/utils/pixabay';
 import express from 'express';
 import fs from 'fs';
 import path from 'path';
+import cors from 'cors';
+
 const createServer = (): express.Application => {
   const app = express();
+  const allowedOrigins = ['http://localhost:3000'];
 
+  const options: cors.CorsOptions = {
+    origin: allowedOrigins,
+  };
+
+  app.use(cors(options));
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
 

@@ -21,7 +21,9 @@
   "author": "Dantis Mai <mtd.maithanhdanh@gmail.com>",
   "license": "Apache-2.0",
   "dependencies": {
+    "@types/cors": "^2.8.12",
     "commander": "^8.3.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "module-alias": "^2.2.2",
     "pexels": "^1.4.0",
