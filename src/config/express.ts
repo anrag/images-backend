@@ -14,6 +14,35 @@ const createServer = (): express.Application => {
     res.send('UP');
   });
 
+  app.get('/readNews', (_req, res) => {
+    let readFile: any = fs.readFileSync('news.txt', 'utf-8');
+    readFile = `[${readFile.substring(0, readFile.length - 1)}]`;
+    readFile = JSON.parse(readFile);
+    res.jsonp({
+      items: readFile.length,
+      news: readFile,
+    });
+  });
+  app.post('/addArticle', async (_req, res) => {
+    let readFile: any = fs.readFileSync('news.txt', 'utf-8');
+    readFile = `[${readFile.substring(0, readFile.length - 1)}]`;
+    readFile = JSON.parse(readFile);
+    // const indexofNews = Array.prototype.findIndex(readFile);
+    const indexofNews = readFile.findIndex((e) => e.title === _req.body?.title);
+    if (indexofNews == -1) {
+      fs.appendFile(`news.txt`, `${JSON.stringify({ ..._req.body, createdAt: new Date() }) + ','}`, (err) => {
+        if (err) console.log(err);
+      });
+      res.jsonp({ message: 'Article Saved Succesfully' });
+      return;
+    } else {
+      res.jsonp({
+        message: 'News Article Already Exists',
+        news: readFile[indexofNews],
+      });
+    }
+  });
+
   app.get('/privacy', (_req, res) => {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     res.sendFile(path.join(__dirname + '/privacy.html'));
