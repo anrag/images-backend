@@ -30,14 +30,9 @@ const createServer = (): express.Application => {
     // const indexofNews = Array.prototype.findIndex(readFile);
     const indexofNews = readFile.findIndex((e) => e.title === _req.body?.title);
     if (indexofNews == -1) {
-      fs.writeFile(
-        `news.txt`,
-        `${JSON.stringify({ ..._req.body, createdAt: new Date() }) + ','}`,
-        { flag: 'wx' },
-        (err) => {
-          if (err) console.log(err);
-        },
-      );
+      fs.appendFile(`news.txt`, `${JSON.stringify({ ..._req.body, createdAt: new Date() }) + ','}`, (err) => {
+        if (err) console.log(err);
+      });
       res.jsonp({ message: 'Article Saved Succesfully' });
       return;
     } else {
@@ -64,7 +59,7 @@ const createServer = (): express.Application => {
     } else {
       Promise.all([fetchPeexlesImages(q, page, limit), fetchPixabayImages(q, page, limit)]).then(async (data) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        fs.writeFile(`images.json`, JSON.stringify([...data]), { flag: 'wx' }, (err) => {
+        fs.writeFile(`images.json`, JSON.stringify([...data]), { flag: 'w' }, (err) => {
           if (err) console.log(err);
         });
         if (data[0].length > 0 || data[1].length > 0) res.send([...data]);
