@@ -6,7 +6,7 @@ import cors from 'cors';
 
 const createServer = (): express.Application => {
   const app = express();
-  const allowedOrigins = ['https://dailycrimenews.in'];
+  const allowedOrigins = ['https://dailycrimenews.in/*', '*'];
 
   const options: cors.CorsOptions = {
     origin: allowedOrigins,
