@@ -6,13 +6,13 @@ import cors from 'cors';
 
 const createServer = (): express.Application => {
   const app = express();
-  const allowedOrigins = ['https://dailycrimenews.in/readNews'];
+  // const allowedOrigins = ['https://dailycrimenews.in/readNews'];
 
-  const options: cors.CorsOptions = {
-    origin: allowedOrigins,
-  };
+  // const options: cors.CorsOptions = {
+  //   origin: allowedOrigins,
+  // };
 
-  app.use(cors(options));
+  app.use(cors());
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
 
