@@ -21,6 +21,12 @@ const createServer = (): express.Application => {
   app.get('/health', (_req, res) => {
     res.send('UP');
   });
+  app.delete('/delete', (_req, res) => {
+    fs.truncate('news.txt', 0, function () {
+      console.log('done');
+      res.jsonp({ message: 'file content deleted' });
+    });
+  });
 
   app.get('/readNews', (_req, res) => {
     let readFile: any = fs.readFileSync('news.txt', 'utf-8');
