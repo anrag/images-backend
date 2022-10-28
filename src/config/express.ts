@@ -42,7 +42,7 @@ const createServer = (): express.Application => {
     readFile = `[${readFile.substring(0, readFile.length - 1)}]`;
     readFile = JSON.parse(readFile);
     // const indexofNews = Array.prototype.findIndex(readFile);
-    const indexofNews = readFile.findIndex((e) => e.title === _req.body?.title);
+    const indexofNews = readFile.findIndex((e) => e.Heading === _req.body?.Heading);
     if (indexofNews == -1) {
       fs.appendFile(`news.txt`, `${JSON.stringify({ ..._req.body, createdAt: new Date() }) + ','}`, (err) => {
         if (err) console.log(err);
