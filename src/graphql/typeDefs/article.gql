@@ -1,0 +1,40 @@
+type Article {
+  id: ID
+  title: String
+  longArticle: String
+  tags: [String]
+  featureImage: String
+  secondaryImage: String
+  shortArticle: String
+  featureVideo: String
+  published: Boolean
+}
+
+input ArticleInput {
+  id: ID
+  title: String
+  longArticle: String
+  tags: [String]
+  featureImage: String
+  secondaryImage: String
+  shortArticle: String
+  featureVideo: String
+  published: Boolean
+}
+
+input ArticleRecordInput {
+  id: ID
+  title: String
+  longArticle: String
+  tags: [String]
+  featureImage: String
+  secondaryImage: String
+  shortArticle: String
+  featureVideo: String
+  published: Boolean
+}
+
+type ArticleOutput {
+  count: Int
+  data: [Article]
+}
