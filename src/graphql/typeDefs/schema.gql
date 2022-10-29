@@ -13,4 +13,5 @@ type Query {
 type Mutation {
   addArticle(input: ArticleInput): Article
   updateArticle(input: ArticleInput): Article
+  getArticleByTitle(input: ArticleRecordInput): ArticleOutput
 }

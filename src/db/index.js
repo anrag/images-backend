@@ -131,6 +131,15 @@ db.getArticle = async (request) => {
   console.log(q);
   return db.article.findAll(q).then((res) => constructResponse(res));
 };
+db.getArticleByTitle = async (request) => {
+  return db.article
+    .findAll({
+      where: {
+        title: request.input.title,
+      },
+    })
+    .then((res) => constructResponse(res));
+};
 db.addArticle = async (request) => {
   return db.article.create(request.input).then((res) => constructResponse(res));
 };

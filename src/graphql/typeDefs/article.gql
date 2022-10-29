@@ -23,17 +23,12 @@ input ArticleInput {
 }
 
 input ArticleRecordInput {
-  id: ID
   title: String
-  longArticle: String
-  tags: [String]
-  featureImage: String
-  secondaryImage: String
-  shortArticle: String
-  featureVideo: String
-  published: Boolean
 }
 
+type ArticleIdInput {
+  id: ID
+}
 type ArticleOutput {
   count: Int
   data: [Article]
