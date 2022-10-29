@@ -8,8 +8,8 @@ type Article {
   shortArticle: String
   featureVideo: String
   published: Boolean
-  createdAt: String
-  updatedAt: String
+  createdAt: Date
+  updatedAt: Date
 }
 
 input ArticleInput {
