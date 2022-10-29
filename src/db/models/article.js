@@ -24,12 +24,12 @@ export default (sequelize, DataTypes) => {
       },
       featureImage: {
         type: DataTypes.TEXT("medium"),
-        unique: true,
+        unique: false,
         allowNull: false,
       },
       secondaryImage: {
         type: DataTypes.TEXT("medium"),
-        unique: true,
+        unique: false,
         allowNull: false,
       },
       shortArticle: {
@@ -39,7 +39,7 @@ export default (sequelize, DataTypes) => {
       },
       featureVideo: {
         type: DataTypes.TEXT("medium"),
-        unique: true,
+        unique: false,
         allowNull: false,
       },
       published: {
