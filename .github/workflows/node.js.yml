@@ -5,7 +5,7 @@ name: Node.js CI
 
 on:
   push:
-    branches: ['main']
+    branches: ["main"]
 
 jobs:
   build:
@@ -22,9 +22,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          cache: "npm"
       - run: npm install
+      - run: npm run cleandb
       - run: npm run build --if-present
       # - run: npm test
       - run: sudo pm2 restart backend
-      - run: sudo rm -rf /home/ubuntu/images-backend/_work/images-backend/images-backend/images.json
+      # - run: sudo rm -rf /home/ubuntu/images-backend/_work/images-backend/images-backend/images.json

@@ -6,7 +6,7 @@
   "author": "Thomas Reinecke <thr@de.ibm.com>",
   "main": "src/app.js",
   "scripts": {
-    "start": "node dist/app.js",
+    "start": "babel-node --require dotenv/config src/app.js",
     "build": "babel src -d dist --source-maps",
     "dev": "babel-node --require dotenv/config src/app.js",
     "cleandb": "babel-node --require dotenv/config util/cleanup.js",
