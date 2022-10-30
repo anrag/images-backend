@@ -99,6 +99,9 @@ db.getOrg = async (request) => {
   return db.org.findAll(q).then((res) => constructResponse(res));
 };
 
+db.addOrg = async (request) => {
+  return db.org.create(request.input).then((res) => constructResponse(res));
+};
 /**
  * getRole - queries for countries based on a given query
  *

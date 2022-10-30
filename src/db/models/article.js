@@ -17,6 +17,11 @@ export default (sequelize, DataTypes) => {
         unique: true,
         allowNull: false,
       },
+      category: {
+        type: DataTypes.STRING(200),
+        unique: true,
+        allowNull: true,
+      },
       tags: {
         type: DataTypes.ARRAY(DataTypes.STRING),
         unique: false,

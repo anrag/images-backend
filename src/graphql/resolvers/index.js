@@ -24,6 +24,7 @@ export default {
     article: (parent, args, { db }, info) => db.getArticle(args, info),
   },
   Mutation: {
+    addOrg: (parent, args, { db }, info) => db.addOrg(args),
     addArticle: (parent, args, { db }, info) => db.addArticle(args),
     updateArticle: (parent, args, { db }, info) => db.updateArticle(args),
     getArticleByTitle: (parent, args, { db }, info) =>
