@@ -4,6 +4,7 @@ type Article {
   longArticle: String
   tags: [String]
   featureImage: String
+  category: String
   secondaryImage: String
   shortArticle: String
   featureVideo: String
@@ -16,6 +17,7 @@ input ArticleInput {
   id: ID
   title: String
   longArticle: String
+  category: String
   tags: [String]
   featureImage: String
   secondaryImage: String
