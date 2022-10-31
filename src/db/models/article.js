@@ -22,6 +22,11 @@ export default (sequelize, DataTypes) => {
         unique: true,
         allowNull: true,
       },
+      slug: {
+        type: DataTypes.STRING(400),
+        unique: true,
+        allowNull: false,
+      },
       tags: {
         type: DataTypes.ARRAY(DataTypes.STRING),
         unique: false,
