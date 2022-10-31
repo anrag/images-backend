@@ -131,7 +131,15 @@ db.getUserRole = async (request) => {
 
 db.getArticle = async (request) => {
   let q = { where: request.query };
-  if (!q?.where?.id)
+  if (q?.where?.slug) {
+    return db.article
+      .findAll({
+        where: {
+          slug: q?.where?.slug,
+        },
+      })
+      .then((res) => constructResponse(res));
+  } else if (!q?.where?.id)
     return db.article
       .findAll({ q, order: [["createdAt", "DESC"]] })
       .then((res) => constructResponse(res));
