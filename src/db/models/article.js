@@ -19,11 +19,11 @@ export default (sequelize, DataTypes) => {
       },
       category: {
         type: DataTypes.STRING(200),
-        unique: true,
+        unique: false,
         allowNull: true,
       },
       slug: {
-        type: DataTypes.STRING(400),
+        type: DataTypes.STRING(4000),
         unique: true,
         allowNull: false,
       },
