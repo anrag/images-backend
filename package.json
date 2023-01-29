@@ -1,5 +1,5 @@
 {
-  "name": "graphql-sequelize-pg",
+  "name": "news-backend",
   "private": true,
   "version": "0.0.1",
   "description": "Graphql Sequelize Postgres Node template",
